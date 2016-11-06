@@ -1,0 +1,19 @@
+{% extends 'music/base.html'%}
+
+{% block title %}Song Details{% endblock %}
+
+{% block body %}
+  <h1> {{album.album_title}} </h1>
+  <h3> by {{album.artist}} </h3>
+
+  <ul>
+  {% for song in album.song_set.all %}
+  <li>
+      {{song.song_title}} - {{song.file_type}}
+      {% if song.is_favorit %}
+        &#x2B50;
+      {% endif %}
+  </li>
+  {% endfor %}
+
+{% endblock %}
